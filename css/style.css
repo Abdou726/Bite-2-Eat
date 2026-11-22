@@ -8,7 +8,7 @@
     --carte: #ffffff;       
     --ligne-or: #efd98a;   
     --categorie: #e0c365;   
-    --texte: #151515;
+    --texte: #3f3e3e;
     --bordure: #cccccc;
     --survol: #d59e2f;
     --erreur: #b00020;
@@ -319,10 +319,31 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+footer {
+    background-color: var(--noir);
+    color: var(--creme);
+    text-align: center;
+    grid-area: pied;
+}
 
-/* =======================================================
+footer > h2 {
+    text-align: center;
+}
 
-/* Tablette */
+.footer-container {
+    display: flex;
+    gap: calc(var(--espace) * 2);
+}
+
+.footer-container > div {
+    flex: 1;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
 @media (max-width: 768px) {
 
     main {
@@ -343,7 +364,6 @@ footer a:hover {
     }
 }
 
-/* Smartphone : menu burger + tableau en cartes */
 @media (max-width: 600px) {
 
     header h1 {

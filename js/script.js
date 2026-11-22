@@ -1,57 +1,25 @@
-/* ==========================================================
-   script.js - commun a toutes les pages
-   1) Menu burger (mobile)
-   2) Mode sombre (memorise avec localStorage)
-   ========================================================== */
+burger = document.getElementById("burger");
+nav = document.getElementById("nav");
 
-/* ---------- 1) Menu burger ---------- */
-const burger = document.getElementById("burger");
-const nav = document.getElementById("nav");
-
-if (burger && nav) {
-    burger.addEventListener("click", function () {
-        // ajoute ou enleve la classe "open" sur le menu
-        const ouvert = nav.classList.toggle("open");
-        // informe les lecteurs d'ecran de l'etat du menu
-        burger.setAttribute("aria-expanded", ouvert);
+if (burger != null && nav != null) {
+    burger.addEventListener("click", function() {
+        nav.classList.toggle("open");
     });
 }
 
-/* ---------- 2) Mode sombre ---------- */
-const boutonTheme = document.getElementById("themeToggle");
 
-// lire le choix enregistre (try/catch au cas ou le stockage est bloque)
-function lireTheme() {
-    try {
-        return localStorage.getItem("theme");
-    } catch (e) {
-        return null;
-    }
-}
+boutonTheme = document.getElementById("themeToggle");
 
-function ecrireTheme(valeur) {
-    try {
-        localStorage.setItem("theme", valeur);
-    } catch (e) {
-        /* on ignore : le mode sombre marchera juste pour cette page */
-    }
-}
+if (boutonTheme != null) {
+    boutonTheme.addEventListener("click", function() {
 
-function appliquerTheme(sombre) {
-    document.body.classList.toggle("dark", sombre);
-    if (boutonTheme) {
-        boutonTheme.setAttribute("aria-pressed", sombre);
-        boutonTheme.textContent = sombre ? "Light mode" : "Dark mode";
-    }
-}
+        document.body.classList.toggle("dark");
 
-// au chargement : on applique le theme choisi precedemment
-appliquerTheme(lireTheme() === "dark");
+        if (document.body.classList.contains("dark")) {
+            boutonTheme.textContent = "Light mode";
+        } else {
+            boutonTheme.textContent = "Dark mode";
+        }
 
-if (boutonTheme) {
-    boutonTheme.addEventListener("click", function () {
-        const sombre = !document.body.classList.contains("dark");
-        appliquerTheme(sombre);
-        ecrireTheme(sombre ? "dark" : "light");
     });
 }
