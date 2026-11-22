@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the delicious menu of Bite 2 Eat">
+    <title>Bite 2 Eat | Menu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <script src="js/menu.js" defer></script>
+</head>
+
+<body id="sommaire">
+
+    <header>
+        <h1>Bite 2 Eat</h1>
+
+        <div class="outils">
+            <button type="button" id="burger" class="burger" aria-label="Open the menu" aria-expanded="false" aria-controls="nav">&#9776; Menu</button>
+            <button type="button" id="themeToggle" aria-pressed="false">Dark mode</button>
+        </div>
+
+        <nav id="nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="menu.html" class="active" aria-current="page">Menu</a>
+            <a href="reservation.html">Reservation</a>
+        </nav>
+
+    </header>
+
+    <main>
+        <h2>Our Menu</h2>
+
+        <div class="filtres" role="group" aria-label="Filter the menu by category">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="burgers" aria-pressed="false">Burgers</button>
+            <button type="button" data-filter="pizzas" aria-pressed="false">Pizzas</button>
+            <button type="button" data-filter="pasta" aria-pressed="false">Pasta</button>
+            <button type="button" data-filter="steaks" aria-pressed="false">Steaks</button>
+            <button type="button" data-filter="desserts" aria-pressed="false">Desserts</button>
+            <button type="button" data-filter="drinks" aria-pressed="false">Drinks</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Dish</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <tbody data-category="burgers">
+                <tr>
+                    <td class="categorie" rowspan="2">Burgers</td>
+                    <td data-label="Dish">Classic Burger</td>
+                    <td data-label="Description">Beef, cheese and special sauce</td>
+                    <td data-label="Price">18 DT</td>
+                </tr>
+                <tr>
+                    <td data-label="Dish">Chicken Burger</td>
+                    <td data-label="Description">Crispy chicken and lettuce</td>
+                    <td data-label="Price">17 DT</td>
+                </tr>
+            </tbody>
+
+            <tbody data-category="pizzas">
+                <tr>
+                    <td class="categorie" rowspan="2">Pizzas</td>
+                    <td data-label="Dish">Margherita</td>
+                    <td data-label="Description">Tomato sauce and mozzarella</td>
+                    <td data-label="Price">20 DT</td>
+                </tr>
+                <tr>
+                    <td data-label="Dish">Pepperoni</td>
+                    <td data-label="Description">Mozzarella and pepperoni</td>
+                    <td data-label="Price">25 DT</td>
+                </tr>
+            </tbody>
+
+            <tbody data-category="pasta">
+                <tr>
+                    <td class="categorie" rowspan="2">Pasta</td>
+                    <td data-label="Dish">Creamy Pasta</td>
+                    <td data-label="Description">Pasta with creamy sauce</td>
+                    <td data-label="Price">22 DT</td>
+                </tr>
+                <tr>
+                    <td data-label="Dish">Carbonara</td>
+                    <td data-label="Description">Pasta, cheese and cream</td>
+                    <td data-label="Price">24 DT</td>
+                </tr>
+            </tbody>
+
+            <tbody data-category="steaks">
+                <tr>
+                    <td class="categorie">Steaks</td>
+                    <td data-label="Dish">Grilled Steak</td>
+                    <td data-label="Description">Grilled beef with potatoes</td>
+                    <td data-label="Price">38 DT</td>
+                </tr>
+            </tbody>
+
+            <tbody data-category="desserts">
+                <tr>
+                    <td class="categorie">Desserts</td>
+                    <td data-label="Dish">Cheesecake</td>
+                    <td data-label="Description">Classic creamy cheesecake</td>
+                    <td data-label="Price">12 DT</td>
+                </tr>
+            </tbody>
+
+            <tbody data-category="drinks">
+                <tr>
+                    <td class="categorie">Drinks</td>
+                    <td data-label="Dish">Fresh Lemonade</td>
+                    <td data-label="Description">Fresh lemon juice</td>
+                    <td data-label="Price">7 DT</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <span class="retour"><a href="#sommaire">^</a></span>
+    <footer>
+        <h2>Bite 2 Eat</h2>
+
+        <div class="footer-container">
+
+            <div>
+                <h3>Contact</h3>
+                <ul type="none">
+                    <li>Address: Sfax, Tunisia</li>
+                    <li><a href="mailto:contact@bite2eat.com">Email</a></li>
+                    <li><a href="tel:+21612345678">Phone: +216 12 345 678</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Opening Hours</h3>
+                <ul type="none">
+                    <li>Monday - Saturday: 11:00 - 23:00</li>
+                    <li>Sunday: 12:00 - 22:00</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Follow Us</h3>
+                <ul type="none">
+                    <li><a href="https://www.instagram.com/eat2bite/">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/eat2bite/">Facebook</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p>&copy; 2026 Bite 2 Eat. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>
