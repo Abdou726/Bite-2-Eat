@@ -1,65 +1,67 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bite 2 Eat - Restaurant moderne">
-    <title>Bite 2 Eat | Accueil</title>
+    <title>Bite 2 Eat | Home</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 
-<body>
+<body id="sommaire">
 
     <header>
         <h1>Bite 2 Eat</h1>
 
-        <nav>
-            <a href="index.html">Accueil</a>
+        <div class="outils">
+            <button type="button" id="burger" class="burger" aria-label="Open the menu" aria-expanded="false" aria-controls="nav">&#9776; Menu</button>
+            <button type="button" id="themeToggle" aria-pressed="false">Dark mode</button>
+        </div>
+
+        <nav id="nav" aria-label="Main navigation">
+            <a href="index.html" class="active" aria-current="page">Home</a>
             <a href="menu.html">Menu</a>
             <a href="reservation.html">Reservation</a>
         </nav>
+        <img src="images/bite.jpeg" alt="Burgers, pizzas and pasta served at Bite 2 Eat" width="1400" height="788">
     </header>
 
-    <main>
+        <main>
         <section class="hero">
             <h2>Welcome to Bite 2 Eat</h2>
-            <p>Discover a delicious experience.</p>
+
+            <video controls preload="none" poster="images/reserv.jpeg">
+                <source src="video/presentation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
             <a href="menu.html">Explore our menu</a>
         </section>
     </main>
-
+    <span class="retour"><a href="#sommaire">^</a></span>
     <footer>
-
         <h2>Bite 2 Eat</h2>
-
         <h3>Contact Information</h3>
-
         <p>Phone:
             <a href="tel:+21612345678">+216 12 345 678</a>
         </p>
-
         <p>Email:
             <a href="mailto:contact@bite2eat.com">contact@bite2eat.com</a>
         </p>
-
         <p>Address: Sfax, Tunisia</p>
 
         <h3>Follow Us</h3>
-
         <p>
             <a href="https://www.instagram.com/eat2bite/">Instagram: @eat2bite</a>
         </p>
 
         <h3>Opening Hours</h3>
-
         <p>Monday - Saturday: 11:00 - 23:00</p>
         <p>Sunday: 12:00 - 22:00</p>
 
         <p>&copy; 2026 Bite 2 Eat. All rights reserved.</p>
-
     </footer>
-
-
 
 </body>
 </html>
