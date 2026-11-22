@@ -1,0 +1,426 @@
+/* ==========================================================
+   Bite 2 Eat - feuille de style principale
+   ========================================================== */
+
+/* ---------- Variables (couleurs, polices) ---------- */
+:root {
+    --noir: #151515;
+    --doré: #d4af37;
+    --blanc: #ffffff;
+    --police-titre: Georgia, serif;
+
+    /* couleurs qui changent en mode sombre */
+    --fond: #f6e7b4;        /* fond de la page : light gold */
+    --carte: #ffffff;       /* table, formulaire : blanc */
+    --ligne-or: #efd98a;    /* lignes gold du tableau */
+    --categorie: #e0c365;   /* case de la categorie */
+    --texte: #151515;
+    --bordure: #cccccc;
+    --survol: #d59e2f;
+    --erreur: #b00020;
+    --succes: #1b6e2d;
+}
+
+body.dark {
+    --fond: #1b1b1b;
+    --carte: #262626;
+    --ligne-or: #3a3320;
+    --categorie: #4d4122;
+    --texte: #f1f1f1;
+    --bordure: #555555;
+    --survol: #4a4020;
+    --erreur: #ff8a80;
+    --succes: #7ddc8f;
+}
+
+/* un element avec l'attribut hidden doit toujours disparaitre */
+[hidden] {
+    display: none !important;
+}
+
+/* ---------- Base ---------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--fond);
+    color: var(--texte);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--police-titre);
+}
+
+h2 {
+    text-align: center;
+    margin: 40px 0 25px;
+}
+
+p {
+    margin: 15px 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* focus visible pour la navigation au clavier */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--doré);
+    outline-offset: 2px;
+}
+/* ---------- Video de presentation (dans le hero) ---------- */
+.hero video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    background-color: var(--noir);
+}
+/* ---------- Header + navigation ---------- */
+header {
+    background-color: var(--noir);
+    color: var(--doré);
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 10px 0;
+    letter-spacing: 2px;
+}
+
+header img {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.outils {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.burger {
+    display: none;            /* visible seulement sur mobile */
+    font-size: 1.2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+nav a {
+    color: var(--blanc);
+    text-decoration: none;
+    padding: 8px;
+    transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--doré);
+}
+
+nav a.active {
+    border-bottom: 2px solid var(--doré);
+}
+
+/* ---------- Contenu ---------- */
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.hero a {
+    display: inline-block;
+    background-color: var(--noir);
+    color: var(--doré);
+    border: 1px solid var(--doré);
+    border-radius: 5px;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hero a:hover {
+    background-color: var(--doré);
+    color: var(--noir);
+}
+
+/* ---------- Filtre du menu ---------- */
+.filtres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.filtres button[aria-pressed="true"] {
+    background-color: var(--doré);
+    color: var(--noir);
+}
+
+/* ---------- Tableau ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background-color: var(--carte);
+}
+
+th, td {
+    border: 1px solid var(--bordure);
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--noir);
+    color: var(--doré);
+}
+
+/* lignes alternees : gold / blanc / gold / blanc ... */
+tbody tr:nth-child(odd) td:not(.categorie) {
+    background-color: var(--ligne-or);
+}
+
+tbody tr:nth-child(even) td:not(.categorie) {
+    background-color: var(--carte);
+}
+/* ligne Cheesecake : blanche au lieu de gold */
+tbody[data-category="desserts"] tr:nth-child(odd) td:not(.categorie) {
+    background-color: var(--carte);
+}
+
+/* garde l'effet de survol sur cette ligne */
+tbody[data-category="desserts"] tr:hover td:not(.categorie) {
+    background-color: var(--survol);
+}
+/* case de la categorie (une seule case pour toutes les lignes) */
+td.categorie {
+    background-color: var(--categorie);
+    font-weight: bold;
+}
+
+tbody tr:hover td:not(.categorie) {
+    background-color: var(--survol);
+}
+
+/* ---------- Formulaire ---------- */
+form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: var(--carte);
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid var(--bordure);
+    border-radius: 5px;
+    font: inherit;
+    background-color: var(--carte);
+    color: var(--texte);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--doré);
+}
+
+input.invalide, select.invalide {
+    border-color: var(--erreur);
+    border-width: 2px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.erreur {
+    display: block;
+    min-height: 1.2em;
+    margin-top: 4px;
+    color: var(--erreur);
+    font-size: 0.9rem;
+}
+
+#confirmation {
+    text-align: center;
+    font-weight: bold;
+    color: var(--succes);
+}
+
+/* ---------- Boutons ---------- */
+button {
+    background-color: var(--noir);
+    color: var(--doré);
+    padding: 12px 20px;
+    border: 1px solid var(--doré);
+    border-radius: 5px;
+    cursor: pointer;
+    font: inherit;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: var(--doré);
+    color: var(--noir);
+}
+
+form button[type="submit"] {
+    margin-top: 20px;
+}
+.retour{
+    display: inline-block;
+    background-color: var(--doré);
+    position: fixed;
+    bottom: 0.5rem;
+    right: 40px;
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    font-style: italic;
+    text-align: center;
+    align-content: center;
+}
+/* ---------- Footer ---------- */
+footer {
+    background-color: var(--noir);
+    color: var(--blanc);
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+footer h2,
+footer h3 {
+    color: var(--doré);
+}
+
+footer a {
+    color: var(--doré);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+/* Tablette */
+@media (max-width: 768px) {
+
+    main {
+        width: 95%;
+        padding: 10px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    form {
+        padding: 15px;
+    }
+}
+
+/* Smartphone : menu burger + tableau en cartes */
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .burger {
+        display: inline-block;
+    }
+
+    nav {
+        display: none;            /* cache le menu par defaut */
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    nav.open {
+        display: flex;            /* le JS ajoute la classe .open */
+    }
+
+    /* tableau : chaque ligne devient une carte (pas de scroll horizontal) */
+    table, thead, tbody, tr, td {
+        display: block;
+    }
+
+    thead {
+        position: absolute;       /* cache l'en-tete mais reste lisible par les lecteurs d'ecran */
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid var(--bordure);
+        margin-bottom: 12px;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid var(--bordure);
+        text-align: left;
+    }
+
+    td::before {
+        content: attr(data-label) " : ";
+        font-weight: bold;
+    }
+
+    td.categorie {
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    td.categorie::before {
+        content: none;
+    }
+}
